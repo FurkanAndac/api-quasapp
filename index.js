@@ -8,6 +8,10 @@ let express = require('express')
 let app = express();
 // Setup server port
 var port = process.env.PORT || 8080;
+// Initiate CORS headers
+const cors = require('cors');
+// Enable CORS headers
+app.use(cors());
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));
 // Launch app to listen to specified port
