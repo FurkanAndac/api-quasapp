@@ -44,7 +44,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
 // Deprecated: mongoose.connect('mongodb://localhost/resthub');
-connectionstring = 'mongodb+srv://FurkanAndac:jwhbkvm9321@quasapp-cluster.rkff8.mongodb.net/quasappDB?retryWrites=true&w=majority'
+connectionstring = 'mongodb://FurkanAndac:jwhbkvm9321@quasapp-cluster.rkff8.mongodb.net/quasappDB?retryWrites=true&w=majority'
 
 mongoose.connect(connectionstring, { useNewUrlParser: true});
 var db = mongoose.connection;
