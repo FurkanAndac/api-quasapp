@@ -19,8 +19,6 @@ exports.uploadUser = function (req, res) {
             user.email = req.body.email;
             user.phone = req.body.phone;
             user.curriculum_vitae = req.files.curriculum_vitae
-            console.log(req);
-
 
             user.save(function (err) {
                 if (err) {
