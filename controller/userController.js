@@ -54,8 +54,9 @@ exports.getUsers = function (req, res) {
                 status: "error",
                 message: err,
             });
+            return;
         }
-        res.json({
+        return res.json({
             status: "success",
             message: "Users retrieved successfully",
             data: users
