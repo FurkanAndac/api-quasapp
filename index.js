@@ -1,7 +1,8 @@
 // FileName: index.js
 
 
-
+// Import cors
+let cors = require('cors');
 // Import express
 let express = require('express')
 // Initialize the app
@@ -22,6 +23,9 @@ let fileUpload = require('express-fileupload');
 app.use(fileUpload({
    createParentPath: true
 }));
+
+// enable cors headers
+app.use(cors());
 
 // Add the code below to index.js
 // Import routes
