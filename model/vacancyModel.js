@@ -31,7 +31,7 @@ var vacancySchema = mongoose.Schema({
 
 });
 // Export Vacancy model
-var Vacancy = module.exports = mongoose.model('user', vacancySchema);
+var Vacancy = module.exports = mongoose.model('vacancy', vacancySchema);
 module.exports.get = function (callback, limit) {
-    User.find(callback).limit(limit);
+    Vacancy.find(callback).limit(limit);
 }
