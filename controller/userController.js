@@ -145,7 +145,7 @@ exports.getCV = function (req, res) {
 exports.updateUserName = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
 
-        user.name = req.body.name ? req.body.name : user.name;
+        user.username = req.body.username ? req.body.username : user.username;
         user.save(function (err) {
             if (err) {
                 res.json(err);
@@ -155,7 +155,7 @@ exports.updateUserName = function(req, res) {
                 res.send({
                     status: true,
                     message: 'Username is updated',
-                    data: user.name
+                    data: user.username
                 });
             }
         })
