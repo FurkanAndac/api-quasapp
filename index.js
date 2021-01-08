@@ -27,6 +27,12 @@ app.use(fileUpload({
 // enable cors headers
 app.use(cors());
 
+// Enable all origins
+app.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   next();
+ });
+
 // Add the code below to index.js
 // Import routes
 let apiRoutes = require("./api-routes/api-routes")
