@@ -50,7 +50,7 @@ router.route('/users/:user_id/cv')
 //Import vacancy controller
 var vacancyController = require('../controller/vacancyController')
 // Vacancy routes
-router.route('/vacancies?limit=2')
+router.route('/vacancies')
     .get(vacancyController.getVacancies)
 
 // Export API routes
