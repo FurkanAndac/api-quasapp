@@ -12,15 +12,14 @@ exports.uploadUser = function (req, res) {
             });
         } else {            
             //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
-            var user = new User();
-            user.name = req.body.name ? req.body.name : user.name;
-            user.surname = req.body.surname ? req.body.surname : user.surname;
-            user.gender = req.body.gender;
-            user.email = req.body.email;
-            user.phone = req.body.phone;
-            user.curriculum_vitae = req.files.curriculum_vitae
+            User.name = req.body.name ? req.body.name : User.name;
+            User.surname = req.body.surname ? req.body.surname : User.surname;
+            User.gender = req.body.gender;
+            User.email = req.body.email;
+            User.phone = req.body.phone;
+            User.curriculum_vitae = req.files.curriculum_vitae
 
-            user.save(function (err) {
+            User.save(function (err) {
                 if (err) {
                     res.json(err);
                 } else {
@@ -30,12 +29,12 @@ exports.uploadUser = function (req, res) {
                         status: true,
                         message: 'Profile is created',
                         data: {
-                            name: user.name,
-                            surname: user.surname,
-                            gender: user.gender,
-                            email: user.email,
-                            phone: user.phone,
-                            cv: user.curriculum_vitae
+                            name: User.name,
+                            surname: User.surname,
+                            gender: User.gender,
+                            email: User.email,
+                            phone: User.phone,
+                            cv: User.curriculum_vitae
                         }
                     });
                 }
