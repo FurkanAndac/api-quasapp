@@ -143,7 +143,6 @@ exports.getCV = function (req, res) {
 };
 
 exports.updateUserName = function(req, res) {
-    res.set('Access-Control-Allow-Origin', '*');
     User.findById(req.params.user_id, function (err, user) {
 
         user.username = req.body.username ? req.body.username : user.username;
@@ -156,7 +155,7 @@ exports.updateUserName = function(req, res) {
                 res.send({
                     status: true,
                     message: 'Username is updated',
-                    data: user.username
+                    data: user
                 });
             }
         })
