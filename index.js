@@ -31,6 +31,7 @@ app.use(cors());
 // Enable all origins
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
+   req.header('Access-Control-Allow-Origin', '*');
    next();
  });
 
