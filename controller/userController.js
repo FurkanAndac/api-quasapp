@@ -144,6 +144,7 @@ exports.getCV = function (req, res) {
 
 exports.updateUserName = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
+        res.header('Access-Control-Allow-Origin', '*');
 
         user.name = req.body.name ? req.body.name : user.name;
         user.save(function (err) {
