@@ -1,6 +1,9 @@
 // api-routes.js
 // Initialize express router
 let router = require('express').Router();
+
+let cors = require('cors');
+
 // Set default API response
 router.get('/', function (req, res) {
     res.json({
@@ -30,7 +33,7 @@ router.route('/users/:user_id')
     .get(userController.getUser)
 router.route('/users/:user_id/name')
     .get(userController.getUserName)
-    .put(userController.updateUserName)
+    .put(userController.updateUserName, cors())
 router.route('/users/:user_id/surname')
     .get(userController.getSurname)
     .put(userController.updateSurname)
