@@ -67,7 +67,7 @@ exports.getUsers = function (req, res) {
 exports.getUser = function (req, res) {
     User.findById(req.params.user_id, function (err, user) {
         if (err)
-            res.send(err);
+            res.send(err);  
         console.log(user.curriculum_vitae)
         res.json({
             message: 'User details loading..',
@@ -82,7 +82,7 @@ exports.getUserName = function (req, res) {
             res.send(err);
         res.json({
             message: 'User details loading..',
-            data: user.username
+            data: user.name
         });
     });
 };
@@ -145,7 +145,7 @@ exports.getCV = function (req, res) {
 exports.updateUserName = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
 
-        user.username = req.body.username ? req.body.username : user.username;
+        user.name = req.body.name ? req.body.name : user.name;
         user.save(function (err) {
             if (err) {
                 res.json(err);
@@ -155,7 +155,7 @@ exports.updateUserName = function(req, res) {
                 res.send({
                     status: true,
                     message: 'Username is updated',
-                    data: user
+                    data: user.name
                 });
             }
         })
