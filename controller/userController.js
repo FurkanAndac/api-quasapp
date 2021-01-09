@@ -82,7 +82,7 @@ exports.getUserName = function (req, res) {
             res.send(err);
         res.json({
             message: 'User details loading..',
-            data: user.name
+            data: user.username
         });
     });
 };
