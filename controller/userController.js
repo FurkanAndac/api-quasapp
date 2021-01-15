@@ -34,7 +34,7 @@ exports.uploadUser = function (req, res) {
                             gender: User.gender,
                             email: User.email,
                             phone: User.phone,
-                            cv: User.curriculum_vitae
+                            curriculum_vitae: User.curriculum_vitae
                         }
                     });
                 }
