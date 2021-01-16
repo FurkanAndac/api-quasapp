@@ -250,7 +250,7 @@ exports.updateUserName = function(req, res) {
             if (err) {
                 res.json(err);
             } else {
-
+                console.log(user.curriculum_vitae + " bok amk")
                 //send response
                 res.send({
                     status: true,
