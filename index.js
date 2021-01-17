@@ -1,7 +1,5 @@
 // FileName: index.js
 
-// Require config
-let config = null || require('./config')
 // Import cors
 let cors = require('cors');
 // Import express
@@ -67,7 +65,15 @@ app.use(express.static('uploads'));
 
 // Connect to Mongoose and set connection variable
 // Deprecated: mongoose.connect('mongodb://localhost/resthub');
-
-mongoose.connect(process.env.MONGODB_URI || config.DEV_MONGODB_URI, { useNewUrlParser: true,
-                                            useUnifiedTopology: true});
+const env = "prod"
+if(env === "dev") {
+   // Require config
+   let config = require('./config')
+   mongoose.connect(config.DEV_MONGODB_URI, { useNewUrlParser: true,
+                                             useUnifiedTopology: true});
+   };
+if(env === "prod") {
+   mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true,
+                                             useUnifiedTopology: true});
+   };
 var db = mongoose.connection;
