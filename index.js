@@ -1,7 +1,7 @@
 // FileName: index.js
 
 // Require config
-let config = require('./config')
+let config = null || require('./config')
 // Import cors
 let cors = require('cors');
 // Import express
