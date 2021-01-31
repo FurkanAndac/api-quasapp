@@ -1,4 +1,7 @@
 // userController.js
+
+const { upload } = require('..');
+
 // Import user model
 User = require('../model/userModel');
 
@@ -245,12 +248,11 @@ exports.updateUserName = function(req, res) {
   exports.updateCV = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
 
-        user.curriculum_vitae = req.body.curriculum_vitae;
+        user.curriculum_vitae = req.files.cv;
         user.save(function (err) {
             if (err) {
                 res.json(err);
             } else {
-                console.log(user.curriculum_vitae + " bok amk")
                 //send response
                 res.send({
                     status: true,

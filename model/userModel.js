@@ -24,7 +24,7 @@ var userSchema = mongoose.Schema({
         default: Date.now
     },  
     curriculum_vitae: {
-        
+        name: String
     }
 });
 // Export User model
