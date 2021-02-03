@@ -66,7 +66,7 @@ app.listen(port, function () {
 
 // Connect to Mongoose and set connection variable
 // Deprecated: mongoose.connect('mongodb://localhost/resthub');
-const env = "prod"
+const env = "dev"
 if(env === "dev") {
    // Require config
    let config = require('./config')
