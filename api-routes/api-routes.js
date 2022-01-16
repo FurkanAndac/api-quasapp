@@ -1,7 +1,7 @@
 // api-routes.js
 // Initialize express router
 let router = require('express').Router();
-// let cors = require('cors')
+
 
 //Import vacancy controller
 var vacancyController = require('../controller/vacancyController')

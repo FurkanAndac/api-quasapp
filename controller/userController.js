@@ -147,6 +147,7 @@ exports.getCV = function (req, res) {
 
 exports.updateUserName = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
+        console.log(user.name)
 
         user.name = req.body.name ? req.body.name : user.name;
         user.save(function (err) {
@@ -247,7 +248,7 @@ exports.updateUserName = function(req, res) {
   
   exports.updateCV = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
-
+        console.log(req.files)
         user.curriculum_vitae = req.files.cv;
         user.save(function (err) {
             if (err) {
