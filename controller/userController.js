@@ -20,6 +20,7 @@ exports.uploadUser = function (req, res) {
             User.gender = req.body.gender;
             User.email = req.body.email;
             User.phone = req.body.phone;
+            user.bio = req.body.bio;
             User.curriculum_vitae = req.files.curriculum_vitae
 
             User.save(function (err) {
@@ -37,6 +38,7 @@ exports.uploadUser = function (req, res) {
                             gender: User.gender,
                             email: User.email,
                             phone: User.phone,
+                            bio: User.bio,
                             curriculum_vitae: User.curriculum_vitae
                         }
                     });
@@ -130,6 +132,17 @@ exports.getPhone = function (req, res) {
         res.json({
             message: 'User details loading..',
             data: user.phone
+        });
+    });
+};
+
+exports.getBio = function (req, res) {
+    User.findById(req.params.user_id, function (err, user) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'User details loading..',
+            data: user.bio
         });
     });
 };
@@ -240,6 +253,26 @@ exports.updateUserName = function(req, res) {
                     status: true,
                     message: 'Phonenumber is updated',
                     data: user.phone
+                });
+            }
+        })
+    });
+  };
+  
+  exports.updateBio = function(req, res) {
+    User.findById(req.params.user_id, function (err, user) {
+
+        user.bio = req.body.bio;
+        user.save(function (err) {
+            if (err) {
+                res.json(err);
+            } else {
+
+                //send response
+                res.send({
+                    status: true,
+                    message: 'Bio is updated',
+                    data: user.bio
                 });
             }
         })

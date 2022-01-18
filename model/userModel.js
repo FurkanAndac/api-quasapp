@@ -18,6 +18,10 @@ var userSchema = mongoose.Schema({
     phone: {
         type: String,
         required: true
+    },    
+    bio: {
+        type: String,
+        required: true
     },
     create_date: {
         type: Date,
